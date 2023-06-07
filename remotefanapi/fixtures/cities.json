@@ -1,0 +1,50 @@
+[
+    {
+        "model": "remotefanapi.city",
+        "pk": 1,
+        "fields": {
+            "name": "Denver",
+            "state": "Colorado"
+        }
+    },
+    {
+        "model": "remotefanapi.city",
+        "pk": 2,
+        "fields": {
+            "name": "Atlanta",
+            "state": "Georgia"
+        }
+    },
+    {
+        "model": "remotefanapi.city",
+        "pk": 3,
+        "fields": {
+            "name": "Portland",
+            "state": "Oregon"
+        }
+    },
+    {
+        "model": "remotefanapi.city",
+        "pk": 4,
+        "fields": {
+            "name": "Las Vegas",
+            "state": "Nevada"
+        }
+    },
+    {
+        "model": "remotefanapi.city",
+        "pk": 5,
+        "fields": {
+            "name": "Seattle",
+            "state": "Washington"
+        }
+    },
+    {
+        "model": "remotefanapi.city",
+        "pk": 6,
+        "fields": {
+            "name": "Austin",
+            "state": "Texas"
+        }
+    }
+]

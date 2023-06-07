@@ -1,0 +1,12 @@
+[
+    {
+        "model": "remotefanapi.bar",
+        "pk": 1,
+        "fields": {
+            "name": "Four Mile Bar",
+            "city": 4,
+            "owner": 1,
+            "teams": [1]
+        }
+    }
+]
