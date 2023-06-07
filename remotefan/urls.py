@@ -16,8 +16,10 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
-from remotefanapi.models import *
+from remotefanapi.views import register_user, login_user
 
 urlpatterns = [
+    path('register', register_user),
+    path('login', login_user),
     path('admin/', admin.site.urls),
 ]
