@@ -22,14 +22,14 @@
     },
     {
         "model": "remotefanapi.sport",
-        "pk": 3,
+        "pk": 4,
         "fields": {
             "label": "Baseball"
         }
     },
     {
         "model": "remotefanapi.sport",
-        "pk": 3,
+        "pk": 5,
         "fields": {
             "label": "Hockey"
         }
