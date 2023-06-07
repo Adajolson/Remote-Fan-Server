@@ -1,0 +1,47 @@
+[
+    {
+        "model": "remotefanapi.team",
+        "pk": 1,
+        "fields": {
+            "name": "Denver Broncos",
+            "city": 1,
+            "sport": 3
+        }
+    },
+    {
+        "model": "remotefanapi.team",
+        "pk": 1,
+        "fields": {
+            "name": "Colorado Rockies",
+            "city": 1,
+            "sport": 4
+        }
+    },
+    {
+        "model": "remotefanapi.team",
+        "pk": 1,
+        "fields": {
+            "name": "Denver Nuggets",
+            "city": 1,
+            "sport": 2
+        }
+    },
+    {
+        "model": "remotefanapi.team",
+        "pk": 1,
+        "fields": {
+            "name": "Colorado Avalanche",
+            "city": 1,
+            "sport": 5
+        }
+    },
+    {
+        "model": "remotefanapi.team",
+        "pk": 1,
+        "fields": {
+            "name": "Colorado Rapids",
+            "city": 1,
+            "sport": 1
+        }
+    }
+]
