@@ -1,0 +1,10 @@
+[
+    {
+        "model": "remotefanapi.fan",
+        "pk": 1,
+        "fields": {
+            "user": 1,
+            "is_owner": true
+        }
+    }
+]

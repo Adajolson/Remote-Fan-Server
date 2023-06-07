@@ -1,0 +1,37 @@
+[
+    {
+        "model": "remotefanapi.sport",
+        "pk": 1,
+        "fields": {
+            "label": "Soccer"
+        }
+    },
+    {
+        "model": "remotefanapi.sport",
+        "pk": 2,
+        "fields": {
+            "label": "Basketball"
+        }
+    },
+    {
+        "model": "remotefanapi.sport",
+        "pk": 3,
+        "fields": {
+            "label": "Football"
+        }
+    },
+    {
+        "model": "remotefanapi.sport",
+        "pk": 3,
+        "fields": {
+            "label": "Baseball"
+        }
+    },
+    {
+        "model": "remotefanapi.sport",
+        "pk": 3,
+        "fields": {
+            "label": "Hockey"
+        }
+    }
+]
