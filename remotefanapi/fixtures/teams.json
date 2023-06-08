@@ -10,7 +10,7 @@
     },
     {
         "model": "remotefanapi.team",
-        "pk": 1,
+        "pk": 2,
         "fields": {
             "name": "Colorado Rockies",
             "city": 1,
@@ -19,7 +19,7 @@
     },
     {
         "model": "remotefanapi.team",
-        "pk": 1,
+        "pk": 3,
         "fields": {
             "name": "Denver Nuggets",
             "city": 1,
@@ -28,7 +28,7 @@
     },
     {
         "model": "remotefanapi.team",
-        "pk": 1,
+        "pk": 4,
         "fields": {
             "name": "Colorado Avalanche",
             "city": 1,
@@ -37,7 +37,7 @@
     },
     {
         "model": "remotefanapi.team",
-        "pk": 1,
+        "pk": 5,
         "fields": {
             "name": "Colorado Rapids",
             "city": 1,
