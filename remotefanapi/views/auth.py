@@ -5,8 +5,6 @@ from rest_framework.decorators import api_view, permission_classes
 from rest_framework.permissions import AllowAny
 from rest_framework.response import Response
 
-from remotefanapi.models import Fan
-
 @api_view(['POST'])
 @permission_classes([AllowAny])
 def login_user(request):
@@ -50,17 +48,12 @@ def register_user(request):
         username=request.data['username'],
         password=request.data['password'],
         first_name=request.data['first_name'],
-        last_name=request.data['last_name']
-    )
-
-    # Now save the extra info in the levelupapi_gamer table
-    fan = Fan.objects.create(
-        is_owner=request.data['is_owner'],
-        user=new_user
+        last_name=request.data['last_name'],
+        email=request.data['email']
     )
 
     # Use the REST Framework's token generator on the new user account
-    token = Token.objects.create(user=fan.user)
+    token = Token.objects.create(user=new_user)
     # Return the token to the client
     data = { 'token': token.key }
     return Response(data)

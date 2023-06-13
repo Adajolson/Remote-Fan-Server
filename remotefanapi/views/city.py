@@ -1,6 +1,6 @@
 from rest_framework.viewsets import ViewSet
 from rest_framework.response import Response
-from rest_framework import serializers
+from rest_framework import serializers, status
 from remotefanapi.models import City
 
 
@@ -27,9 +27,21 @@ class CityView(ViewSet):
         cities = City.objects.all()
         serializer = CitySerializer(cities, many=True)
         return Response(serializer.data)
+    
+    def create(self, request):
+        """Handle POST operations
+        Returns
+            Response -- JSON serialized city instance
+        """
+        city = City.objects.create(
+            name = request.data["name"],
+            state =  request.data["state"]
+        )
+        serializer = CitySerializer(city)
+        return Response(serializer.data, status=status.HTTP_201_CREATED)
 
 class CitySerializer(serializers.ModelSerializer):
-    """JSON serializer for game types
+    """JSON serializer for cities
     """
     class Meta:
         model = City
