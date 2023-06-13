@@ -1,7 +1,7 @@
 from rest_framework.viewsets import ViewSet
 from rest_framework.response import Response
 from rest_framework import serializers, status
-from remotefanapi.models import Team
+from remotefanapi.models import Team, Sport, City
 
 
 class TeamView(ViewSet):
@@ -29,6 +29,22 @@ class TeamView(ViewSet):
         teams = Team.objects.all()
         serializer = TeamSerializer(teams, many=True)
         return Response(serializer.data)
+
+    def create(self, request):
+        """Handle POST operations
+        Returns
+            Response -- JSON serialized city instance
+        """
+        sport = Sport.objects.get(pk=request.data["sport"])
+        city = City.objects.get(pk=request.data["city"])
+
+        team = Team.objects.create(
+            name = request.data["name"],
+            city=city,
+            sport=sport
+        )
+        serializer = TeamSerializer(team)
+        return Response(serializer.data, status=status.HTTP_201_CREATED)
 
 class TeamSerializer(serializers.ModelSerializer):
     """JSON serializer for game types

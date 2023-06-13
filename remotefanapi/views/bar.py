@@ -1,7 +1,8 @@
 from rest_framework.viewsets import ViewSet
 from rest_framework.response import Response
-from rest_framework import serializers
-from remotefanapi.models import Bar
+from rest_framework import serializers, status
+from django.contrib.auth.models import User
+from remotefanapi.models import Bar, City
 
 
 class BarView(ViewSet):
@@ -27,6 +28,27 @@ class BarView(ViewSet):
         bars = Bar.objects.all()
         serializer = BarSerializer(bars, many=True)
         return Response(serializer.data)
+    
+    def create(self, request):
+        """Handle POST operations
+        Returns
+            Response -- JSON serialized bar instance
+        """
+        city=City.objects.get(pk=request.data["city"])
+        owner=User.objects.get(pk=request.auth.user.id)
+        bar = Bar.objects.create(
+            name = request.data["name"],
+            city = city,
+            address = request.data["address"],
+            owner = owner
+        )
+        serializer = BarSerializer(bar)
+        return Response(serializer.data, status=status.HTTP_201_CREATED)
+    
+    def destroy(self, request, pk):
+        bar = Bar.objects.get(pk=pk)
+        bar.delete()
+        return Response(None, status=status.HTTP_204_NO_CONTENT)
 
 class BarSerializer(serializers.ModelSerializer):
     """JSON serializer for game types

@@ -4,6 +4,7 @@
         "pk": 1,
         "fields": {
             "name": "Four Mile Bar",
+            "address": "3650 Boulder Hwy",
             "city": 4,
             "owner": 1,
             "teams": [1]
