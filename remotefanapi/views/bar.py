@@ -26,7 +26,7 @@ class BarView(ViewSet):
             Response -- JSON serialized list of bars
         """
         bars = Bar.objects.all()
-        team = Team.objects.get(pk=request.data["team"])
+        team = Team.objects.get(pk=request.data["teams"])
         for bar in bars:
             bar.joined = team in bar.teams.all()
         serializer = BarSerializer(bars, many=True)
@@ -83,7 +83,7 @@ class BarView(ViewSet):
     def remove_team_from_bar(self, request, pk):
         """Delete request to remove a team from a bar"""
 
-        team = Team.objects.get(pk=request.data["team"])
+        team = Team.objects.get(pk=request.data["teams"])
         bar = Bar.objects.get(pk=pk)
         bar.teams.remove(team)
         return Response({'message': 'Team removed'}, status=status.HTTP_201_CREATED)
@@ -93,4 +93,5 @@ class BarSerializer(serializers.ModelSerializer):
     """
     class Meta:
         model = Bar
-        fields = ('id', 'name', 'city', 'address', 'owner')
+        fields = ('id', 'name', 'city', 'address', 'teams', 'owner')
+
