@@ -71,27 +71,10 @@ class BarView(ViewSet):
         bar.save()
 
         return Response(None, status=status.HTTP_204_NO_CONTENT)
-    
+
     @action(methods=['post', 'put'], detail=True)
-    def add_team_to_bar(self, request, pk):
-        """Post request to add a team to a bar"""
-        try:
-            team_id = request.data.get("teams")
-            if team_id is None:
-                return Response({"message": "Team ID is missing"}, status=status.HTTP_400_BAD_REQUEST)
-            
-            team = Team.objects.get(pk=team_id)
-            bar = Bar.objects.get(pk=pk)
-            bar.teams.add(team)
-            return Response({'message': 'Team added'}, status=status.HTTP_201_CREATED)
-        except Team.DoesNotExist:
-            return Response({"message": "Team does not exist"}, status=status.HTTP_404_NOT_FOUND)
-        except Exception as e:
-            return Response({"message": str(e)}, status=status.HTTP_500_INTERNAL_SERVER_ERROR)
-
-    @action(methods=['delete'], detail=True)
-    def remove_team_from_bar(self, request, pk):
-        """Delete request to remove a team from a bar"""
+    def edit_teams_in_bar(self, request, pk):
+        """Custom action to add or remove a team from a bar"""
         try:
             team_id = request.data.get("teams")
             if team_id is None:
@@ -99,8 +82,15 @@ class BarView(ViewSet):
 
             team = Team.objects.get(pk=team_id)
             bar = Bar.objects.get(pk=pk)
-            bar.teams.remove(team)
-            return Response({'message': 'Team removed'}, status=status.HTTP_204_NO_CONTENT)
+
+            if request.method == 'POST':
+                bar.teams.add(team)
+                return Response({'message': 'Team added'}, status=status.HTTP_201_CREATED)
+            elif request.method == 'PUT':
+                bar.teams.clear()
+                
+                return Response({'message': 'Team removed'}, status=status.HTTP_204_NO_CONTENT)
+
         except Team.DoesNotExist:
             return Response({"message": "Team does not exist"}, status=status.HTTP_404_NOT_FOUND)
         except Exception as e:
