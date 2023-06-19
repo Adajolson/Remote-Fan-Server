@@ -74,27 +74,24 @@ class BarView(ViewSet):
 
     @action(methods=['post', 'put'], detail=True)
     def edit_teams_in_bar(self, request, pk):
-        """Custom action to add or remove a team from a bar"""
+        """Custom action to add or remove teams from a bar"""
         try:
-            team_id = request.data.get("teams")
-            if team_id is None:
-                return Response({"message": "Team ID is missing"}, status=status.HTTP_400_BAD_REQUEST)
+            team_ids = request.data["teams"]
+            if not team_ids:
+                return Response({"message": "Team IDs are missing"}, status=status.HTTP_400_BAD_REQUEST)
 
-            team = Team.objects.get(pk=team_id)
+            teams = Team.objects.filter(pk__in=team_ids)
             bar = Bar.objects.get(pk=pk)
 
             if request.method == 'POST':
-                bar.teams.add(team)
-                return Response({'message': 'Team added'}, status=status.HTTP_201_CREATED)
+                bar.teams.add(*teams)
+                return Response({'message': 'Teams added'}, status=status.HTTP_201_CREATED)
             elif request.method == 'PUT':
                 bar.teams.clear()
-                
-                return Response({'message': 'Team removed'}, status=status.HTTP_204_NO_CONTENT)
-
-        except Team.DoesNotExist:
-            return Response({"message": "Team does not exist"}, status=status.HTTP_404_NOT_FOUND)
-        except Exception as e:
-            return Response({"message": str(e)}, status=status.HTTP_500_INTERNAL_SERVER_ERROR)
+                bar.teams.add(*teams)
+                return Response({'message': 'Teams edited'}, status=status.HTTP_204_NO_CONTENT)
+        except Bar.DoesNotExist:
+            return Response({"message": "Bar not found"}, status=status.HTTP_404_NOT_FOUND)
 
 class BarSerializer(serializers.ModelSerializer):
     """JSON serializer for game types
