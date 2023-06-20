@@ -6,3 +6,4 @@ class Team(models.Model):
     city = models.ForeignKey("City", on_delete=models.CASCADE)
     sport = models.ForeignKey("Sport", on_delete=models.CASCADE)
     bars = models.ManyToManyField("Bar", related_name="teamBars")
+    logo = models.URLField(blank=True)

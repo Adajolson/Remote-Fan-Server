@@ -41,14 +41,20 @@ class TeamView(ViewSet):
         team = Team.objects.create(
             name = request.data["name"],
             city=city,
-            sport=sport
+            sport=sport,
+            logo = request.data["logo"]
         )
         serializer = TeamSerializer(team)
         return Response(serializer.data, status=status.HTTP_201_CREATED)
+    
+    def destroy(self, request, pk):
+        team = Team.objects.get(pk=pk)
+        team.delete()
+        return Response(None, status=status.HTTP_204_NO_CONTENT)
 
 class TeamSerializer(serializers.ModelSerializer):
     """JSON serializer for game types
     """
     class Meta:
         model = Team
-        fields = ('id', 'name', 'city', 'sport')
+        fields = ('id', 'name', 'city', 'sport', 'logo')
