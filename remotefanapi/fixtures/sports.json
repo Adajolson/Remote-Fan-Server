@@ -3,35 +3,40 @@
         "model": "remotefanapi.sport",
         "pk": 1,
         "fields": {
-            "label": "Soccer"
+            "label": "Soccer",
+            "logo": "https://upload.wikimedia.org/wikipedia/en/thumb/e/ec/Soccer_ball.svg/640px-Soccer_ball.svg.png"
         }
     },
     {
         "model": "remotefanapi.sport",
         "pk": 2,
         "fields": {
-            "label": "Basketball"
+            "label": "Basketball",
+            "logo": "https://upload.wikimedia.org/wikipedia/commons/7/7a/Basketball.png"
         }
     },
     {
         "model": "remotefanapi.sport",
         "pk": 3,
         "fields": {
-            "label": "Football"
+            "label": "Football",
+            "logo": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/16/American_football.svg/1024px-American_football.svg.png"
         }
     },
     {
         "model": "remotefanapi.sport",
         "pk": 4,
         "fields": {
-            "label": "Baseball"
+            "label": "Baseball",
+            "logo": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/92/Baseball.svg/1200px-Baseball.svg.png"
         }
     },
     {
         "model": "remotefanapi.sport",
         "pk": 5,
         "fields": {
-            "label": "Hockey"
+            "label": "Hockey",
+            "logo": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/1f/Ice_hockey_puck_-_2.jpg/1200px-Ice_hockey_puck_-_2.jpg"
         }
     }
 ]

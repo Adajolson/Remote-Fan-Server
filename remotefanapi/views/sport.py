@@ -36,4 +36,4 @@ class SportSerializer(serializers.ModelSerializer):
     """
     class Meta:
         model = Sport
-        fields = ('id', 'label')
+        fields = ('id', 'label', 'logo')

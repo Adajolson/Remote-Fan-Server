@@ -39,6 +39,11 @@ class CityView(ViewSet):
         )
         serializer = CitySerializer(city)
         return Response(serializer.data, status=status.HTTP_201_CREATED)
+    
+    def destroy(self, request, pk):
+        city = City.objects.get(pk=pk)
+        city.delete()
+        return Response(None, status=status.HTTP_204_NO_CONTENT)
 
 class CitySerializer(serializers.ModelSerializer):
     """JSON serializer for cities

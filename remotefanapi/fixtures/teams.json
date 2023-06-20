@@ -5,7 +5,8 @@
         "fields": {
             "name": "Denver Broncos",
             "city": 1,
-            "sport": 3
+            "sport": 3,
+            "logo": "https://logos-world.net/wp-content/uploads/2020/05/Denver-Broncos-logo.png"
         }
     },
     {
@@ -14,7 +15,8 @@
         "fields": {
             "name": "Colorado Rockies",
             "city": 1,
-            "sport": 4
+            "sport": 4,
+            "logo": "https://www.mlbstatic.com/team-logos/share/115.jpg"
         }
     },
     {
@@ -23,7 +25,8 @@
         "fields": {
             "name": "Denver Nuggets",
             "city": 1,
-            "sport": 2
+            "sport": 2,
+            "logo": "https://logos-world.net/wp-content/uploads/2020/05/Denver-Nuggets-Logo.png"
         }
     },
     {
@@ -32,7 +35,8 @@
         "fields": {
             "name": "Colorado Avalanche",
             "city": 1,
-            "sport": 5
+            "sport": 5,
+            "logo": "https://upload.wikimedia.org/wikipedia/en/thumb/4/45/Colorado_Avalanche_logo.svg/1200px-Colorado_Avalanche_logo.svg.png"
         }
     },
     {
@@ -41,7 +45,8 @@
         "fields": {
             "name": "Colorado Rapids",
             "city": 1,
-            "sport": 1
+            "sport": 1,
+            "logo": "https://logos-world.net/wp-content/uploads/2020/06/Colorado-Rapids-logo.png"
         }
     }
 ]
